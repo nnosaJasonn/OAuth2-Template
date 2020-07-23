@@ -1,11 +1,13 @@
-# spotify-api
+<h1>Generic Oauth2 code flow template</h1>
 
-API layer for spotify playlist app. this should handle authentication and all requests to the spotify web-api. 
+Just add these to your .env file:
 <ul>
-    <li>Authenticate</li>
-    <li>top tracks</li>
-    <li>top artists</li>
-    <li>song data</li>
+    <li>client_id</li>
+    <li>client_secret</li>
+    <li>redirect_uri</li>
+    <li>auth_endpoint</li>
+    <li>scopes</li>
+    <li>refresh_endpoint</li>
 </ul>
 
-see also : https://github.com/nnosaJasonn/spotify-client and https://github.com/nnosaJasonn/playlist-creator
+customize as required

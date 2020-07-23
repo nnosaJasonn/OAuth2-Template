@@ -2,23 +2,12 @@
 	<head>
 	</head>
 	<body>
-        <h1>Auth with Spotify</h1>
+        <h1>Authenticate</h1>
         <form method="GET" action="/login">
-            <button type=submit>Authenticate</button>
+            <button type=submit>Crunchatize Me Cap'n!</button>
         </form>
-        <form method="GET" action="/topsongs">
-            <input name="token" id="token" type="text">
-            <button type=submit>get top songs</button>
-        </form>
-        <table>
-            <th>
-                <td>artist</td>
-                <td>song</td>
-            </th>
-            <tbody id='res'>
-                
-            </tbody>
-        </table>
+        <p>Access Token <span id="token"></span></p>
+        <p>Refresh Token <span id="refresh"></span></p>
     </body>
     <script>
         function getHashParams() {
@@ -31,7 +20,7 @@
             return hashParams;
           }
           let toke = document.getElementById('token');
-       let ul = document.getElementById('res');
+       let refresh = document.getElementById('refresh');
        var params = getHashParams();
        var access_token = params.access_token,
             refresh_token = params.refresh_token,
@@ -39,16 +28,8 @@
             result = params.result;
             console.log(result);
             console.log(error);
-        toke.value = access_token;
-let html = '';
-if(result != null)
-{
-    result.forEach(res => {
-        html += `<tr><td>${res.artist}</td><td>${res.song}</td></tr>`;
-    })
-    ul.innerHTML = html;
-    
-}
+        toke.innerText = access_token;
+        refresh.innerText = refresh_token;
     </script>
     
     
