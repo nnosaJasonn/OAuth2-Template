@@ -8,7 +8,7 @@ dotenv.config();
 const client_id = process.env.client_id;
 const client_secret = process.env.client_secret;
 const auth_endpoint = process.env.auth_endpoint;
-const scopes = process.env.scopes;
+const scope = process.env.scope;
 const redirect_uri = process.env.redirect_uri;
 const refresh_endpoint = process.env.refresh_endpoint;
 console.log('client-id => ' +client_id);
@@ -30,10 +30,10 @@ app.get('/login', (req, res) => {
     res.redirect(auth_endpoint +
     querystring.stringify({
         response_type: 'code',
-        client_id:client_id, 
-        scope: scopes,
-        redirect_uri: redirect_uri,
-        state: state
+        client_id, 
+        scope,
+        redirect_uri,
+        state
     }))
 });
 
@@ -53,8 +53,8 @@ app.get('/callback', (req,res) => {
             code,
             redirect_uri,
             grant_type: 'authorization_code',
-            client_id: client_id,
-            client_secret: client_secret
+            client_id,
+            client_secret
           };
         
           try {
